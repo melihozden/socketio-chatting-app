@@ -1,5 +1,26 @@
 extends layout
 
+append stylesheets
+  link(rel='stylesheet', href='/stylesheets/index.css')
+
 block content
-  h1= title
-  p Welcome to #{title}
+  .content
+    .logobox
+      span.appname Socketio Chatting App
+      .desc
+        span.appdesc Created by DiverDeveloper
+    .form
+      .form-body
+        span.login Login
+        form(action='#')
+          label(for='email') Email
+          input.email(type='text')
+          br
+          label(for='password') Password
+          input.password(type='password')
+          br
+          .remember-me
+            input(type='checkbox')
+            label.remember(for='checkbox') Remember Me
+          input.signin(type='submit', value='Sign In')
+        span New User? Create Account
