@@ -3,7 +3,6 @@
   }
   
   .content {
-    height: 60vh;
     width: 60%;
     box-shadow: 0 0 3rem rgba(0,0,0,0.2);
     display: flex;
@@ -32,7 +31,6 @@
     bottom: 10px;
   }
   .content .form {
-    height: 60vh;
     vertical-align: top;
     width: 60%;
     display: flex;
@@ -93,19 +91,27 @@
     cursor: pointer;
   }
   .midTextdiv{
-    text-align: center;;
+    margin-top : 30px;
+    margin-bottom: -15px;
+    text-align: center;
   }
   .midText{
-    margin: 30px;
     width: 100%;
+    font-weight: bold;
   }
 .create{
   text-decoration: none;
 }
+hr{
+  margin: 20px;
+  width: 500px;
+}
 
 /* Google Sign in Button */
 .google-button{
+  margin: 10px;
   border-radius: 10px;
+  background: transparent ;
 }
 .google-button:hover{
   cursor: pointer;
