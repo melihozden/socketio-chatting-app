@@ -8,8 +8,4 @@ mongoose.connection.on('open',()=>{
 mongoose.connection.on('error',()=>{
     console.log('MongDB : Error!!');
 })
-
-
 mongoose.Promise = global.Promise ;
-
-
