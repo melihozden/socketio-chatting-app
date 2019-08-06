@@ -4,10 +4,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // models 
-
 const User = require('../models/users');
 // console.log(process.env.DB_STRING)
-
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_LOGIN_CLIENT_ID,
     clientSecret: process.env.GOOGLE_LOGIN_SECRET_ID,
