@@ -7,7 +7,7 @@ dotenv.config();
 //     return typeof arg === 'string';
 // }
 
-mongoose.connect('mongodb://localhost/socketio-chatting-app', { useNewUrlParser: true});
+mongoose.connect(process.env.DB_STRING, { useNewUrlParser: true});
 
 mongoose.connection.on('open',()=>{
     console.log('MongoDB : Connected.');
