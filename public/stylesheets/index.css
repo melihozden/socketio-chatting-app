@@ -7,6 +7,7 @@
     box-shadow: 0 0 3rem rgba(0,0,0,0.2);
     display: flex;
     border-radius: 0.6rem;
+    position: fixed;
   }
   
   .content .logobox {
@@ -31,7 +32,6 @@
     bottom: 10px;
   }
   .content .form {
-    vertical-align: top;
     width: 60%;
     display: flex;
     justify-content: center;
