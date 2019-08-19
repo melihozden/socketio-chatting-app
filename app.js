@@ -6,6 +6,9 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
+
+const passport = require('passport');
+
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -26,6 +29,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
+
+app.use(passport.initialize())
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
