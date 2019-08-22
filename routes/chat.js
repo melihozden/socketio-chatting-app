@@ -3,9 +3,8 @@ const router = express.Router();
 
 /* GET chat home page. */
 router.get('/', function(req, res, next) {
-    if(!req.user) res.render('index',{title:"Express"});
-    else res.redirect('/chat');
-    
+  console.log(req.user);
+  res.render('chat', {user: req.user});
 });
 
 module.exports = router;

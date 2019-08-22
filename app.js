@@ -6,6 +6,9 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
+const chatRouter = require('./routes/chat')
+
+const session = require('express-session');
 
 const passport = require('passport');
 
@@ -17,7 +20,11 @@ dotenv.config();
 
 const app = express();
 
+//helpers 
 const db = require('./helpers/db');
+
+//middelware
+const isAuthenticated = require('./middleware/isAuthenticated')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,10 +37,21 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
 
+// express-session
+app.use(session({
+  secret: process.env.SESSION_SECRET_KEY,
+  resave: false,
+  saveUninitialized: true,
+  cookie: {maxAge: 1209600 }
+}));
+
+//passportjs
 app.use(passport.initialize())
+app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
+app.use('/chat',isAuthenticated,chatRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
