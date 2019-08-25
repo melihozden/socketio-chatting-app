@@ -42,7 +42,7 @@ app.use(session({
   secret: process.env.SESSION_SECRET_KEY,
   resave: false,
   saveUninitialized: true,
-  cookie: {maxAge: 1209600 }
+  cookie: { maxAge: 1209600 }
 }));
 
 //passportjs
@@ -51,7 +51,7 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
-app.use('/chat',isAuthenticated,chatRouter);
+app.use('/chat', isAuthenticated, chatRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

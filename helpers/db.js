@@ -6,13 +6,15 @@ const mongoose = require('mongoose');
 //     return typeof arg === 'string';
 // }
 
-mongoose.connect(process.env.DB_STRING, { useNewUrlParser: true, useCreateIndex : true });
+module.exports = () => {
+    mongoose.connect(process.env.DB_STRING, { useNewUrlParser: true });
 
-mongoose.connection.on('open', () => {
-    console.log('MongoDB : Connected.');
-    // console.log(isString(envString));
-})
-mongoose.connection.on('error', () => {
-    console.log('MongDB : Error!!');
-})
-mongoose.Promise = global.Promise;
+    mongoose.connection.on('open', () => {
+        console.log('MongoDB : Connected.');
+        // console.log(isString(envString));
+    })
+    mongoose.connection.on('error', (err) => {
+        console.log('MongDB : Error!!', err);
+    })
+    mongoose.Promise = global.Promise;
+};
