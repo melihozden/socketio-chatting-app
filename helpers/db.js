@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 //     return typeof arg === 'string';
 // }
 
-module.exports = () => {
     mongoose.connect(process.env.DB_STRING, { useNewUrlParser: true });
 
     mongoose.connection.on('open', () => {
@@ -17,4 +16,3 @@ module.exports = () => {
         console.log('MongDB : Error!!', err);
     })
     mongoose.Promise = global.Promise;
-};
